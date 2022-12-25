@@ -1,0 +1,14 @@
+.gitignore
+.npmignore
+api.ts
+api/clients-api.ts
+api/job-request-api.ts
+common.ts
+configuration.ts
+git_push.sh
+index.ts
+models/client.ts
+models/index.ts
+models/job-request.ts
+models/modify-client-dto.ts
+models/modify-job-request-dto.ts
