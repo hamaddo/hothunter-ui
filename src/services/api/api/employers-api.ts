@@ -21,14 +21,14 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { Client } from '../models';
+import { Employer } from '../models';
 // @ts-ignore
-import { ModifyClientDto } from '../models';
+import { ModifyEmployerDto } from '../models';
 /**
- * ClientsApi - axios parameter creator
+ * EmployersApi - axios parameter creator
  * @export
  */
-export const ClientsApiAxiosParamCreator = function (configuration?: Configuration) {
+export const EmployersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
@@ -36,10 +36,10 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsDeleteIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        employersDeleteIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('clientsDeleteIdDelete', 'id', id)
-            const localVarPath = `/clients/delete/{id}`
+            assertParamExists('employersDeleteIdDelete', 'id', id)
+            const localVarPath = `/employers/delete/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -68,8 +68,8 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/clients`;
+        employersGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/employers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -98,10 +98,10 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        employersIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('clientsIdGet', 'id', id)
-            const localVarPath = `/clients/{id}`
+            assertParamExists('employersIdGet', 'id', id)
+            const localVarPath = `/employers/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -128,14 +128,14 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} id 
-         * @param {ModifyClientDto} [modifyClientDto] 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsIdPut: async (id: string, modifyClientDto?: ModifyClientDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        employersIdPut: async (id: string, modifyEmployerDto?: ModifyEmployerDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('clientsIdPut', 'id', id)
-            const localVarPath = `/clients/{id}`
+            assertParamExists('employersIdPut', 'id', id)
+            const localVarPath = `/employers/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -155,7 +155,7 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(modifyClientDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(modifyEmployerDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -164,12 +164,12 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {ModifyClientDto} [modifyClientDto] 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsPost: async (modifyClientDto?: ModifyClientDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/clients`;
+        employersPost: async (modifyEmployerDto?: ModifyEmployerDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/employers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -188,7 +188,7 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(modifyClientDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(modifyEmployerDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -199,11 +199,11 @@ export const ClientsApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * ClientsApi - functional programming interface
+ * EmployersApi - functional programming interface
  * @export
  */
-export const ClientsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ClientsApiAxiosParamCreator(configuration)
+export const EmployersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = EmployersApiAxiosParamCreator(configuration)
     return {
         /**
          * 
@@ -211,8 +211,8 @@ export const ClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async clientsDeleteIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Client>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.clientsDeleteIdDelete(id, options);
+        async employersDeleteIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Employer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.employersDeleteIdDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -220,50 +220,50 @@ export const ClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async clientsGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Client>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.clientsGet(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async clientsIdGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Client>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.clientsIdGet(id, options);
+        async employersGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Employer>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.employersGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyClientDto} [modifyClientDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async clientsIdPut(id: string, modifyClientDto?: ModifyClientDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Client>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.clientsIdPut(id, modifyClientDto, options);
+        async employersIdGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Employer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.employersIdGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {ModifyClientDto} [modifyClientDto] 
+         * @param {string} id 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async clientsPost(modifyClientDto?: ModifyClientDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Client>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.clientsPost(modifyClientDto, options);
+        async employersIdPut(id: string, modifyEmployerDto?: ModifyEmployerDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Employer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.employersIdPut(id, modifyEmployerDto, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async employersPost(modifyEmployerDto?: ModifyEmployerDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Employer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.employersPost(modifyEmployerDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
 
 /**
- * ClientsApi - factory interface
+ * EmployersApi - factory interface
  * @export
  */
-export const ClientsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ClientsApiFp(configuration)
+export const EmployersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = EmployersApiFp(configuration)
     return {
         /**
          * 
@@ -271,169 +271,169 @@ export const ClientsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsDeleteIdDelete(id: string, options?: any): AxiosPromise<Array<Client>> {
-            return localVarFp.clientsDeleteIdDelete(id, options).then((request) => request(axios, basePath));
+        employersDeleteIdDelete(id: string, options?: any): AxiosPromise<Employer> {
+            return localVarFp.employersDeleteIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsGet(options?: any): AxiosPromise<Array<Client>> {
-            return localVarFp.clientsGet(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        clientsIdGet(id: string, options?: any): AxiosPromise<Client> {
-            return localVarFp.clientsIdGet(id, options).then((request) => request(axios, basePath));
+        employersGet(options?: any): AxiosPromise<Array<Employer>> {
+            return localVarFp.employersGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyClientDto} [modifyClientDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsIdPut(id: string, modifyClientDto?: ModifyClientDto, options?: any): AxiosPromise<Client> {
-            return localVarFp.clientsIdPut(id, modifyClientDto, options).then((request) => request(axios, basePath));
+        employersIdGet(id: string, options?: any): AxiosPromise<Employer> {
+            return localVarFp.employersIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {ModifyClientDto} [modifyClientDto] 
+         * @param {string} id 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        clientsPost(modifyClientDto?: ModifyClientDto, options?: any): AxiosPromise<Client> {
-            return localVarFp.clientsPost(modifyClientDto, options).then((request) => request(axios, basePath));
+        employersIdPut(id: string, modifyEmployerDto?: ModifyEmployerDto, options?: any): AxiosPromise<Employer> {
+            return localVarFp.employersIdPut(id, modifyEmployerDto, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ModifyEmployerDto} [modifyEmployerDto] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        employersPost(modifyEmployerDto?: ModifyEmployerDto, options?: any): AxiosPromise<Employer> {
+            return localVarFp.employersPost(modifyEmployerDto, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for clientsDeleteIdDelete operation in ClientsApi.
+ * Request parameters for employersDeleteIdDelete operation in EmployersApi.
  * @export
- * @interface ClientsApiClientsDeleteIdDeleteRequest
+ * @interface EmployersApiEmployersDeleteIdDeleteRequest
  */
-export interface ClientsApiClientsDeleteIdDeleteRequest {
+export interface EmployersApiEmployersDeleteIdDeleteRequest {
     /**
      * 
      * @type {string}
-     * @memberof ClientsApiClientsDeleteIdDelete
+     * @memberof EmployersApiEmployersDeleteIdDelete
      */
     readonly id: string
 }
 
 /**
- * Request parameters for clientsIdGet operation in ClientsApi.
+ * Request parameters for employersIdGet operation in EmployersApi.
  * @export
- * @interface ClientsApiClientsIdGetRequest
+ * @interface EmployersApiEmployersIdGetRequest
  */
-export interface ClientsApiClientsIdGetRequest {
+export interface EmployersApiEmployersIdGetRequest {
     /**
      * 
      * @type {string}
-     * @memberof ClientsApiClientsIdGet
+     * @memberof EmployersApiEmployersIdGet
      */
     readonly id: string
 }
 
 /**
- * Request parameters for clientsIdPut operation in ClientsApi.
+ * Request parameters for employersIdPut operation in EmployersApi.
  * @export
- * @interface ClientsApiClientsIdPutRequest
+ * @interface EmployersApiEmployersIdPutRequest
  */
-export interface ClientsApiClientsIdPutRequest {
+export interface EmployersApiEmployersIdPutRequest {
     /**
      * 
      * @type {string}
-     * @memberof ClientsApiClientsIdPut
+     * @memberof EmployersApiEmployersIdPut
      */
     readonly id: string
 
     /**
      * 
-     * @type {ModifyClientDto}
-     * @memberof ClientsApiClientsIdPut
+     * @type {ModifyEmployerDto}
+     * @memberof EmployersApiEmployersIdPut
      */
-    readonly modifyClientDto?: ModifyClientDto
+    readonly modifyEmployerDto?: ModifyEmployerDto
 }
 
 /**
- * Request parameters for clientsPost operation in ClientsApi.
+ * Request parameters for employersPost operation in EmployersApi.
  * @export
- * @interface ClientsApiClientsPostRequest
+ * @interface EmployersApiEmployersPostRequest
  */
-export interface ClientsApiClientsPostRequest {
+export interface EmployersApiEmployersPostRequest {
     /**
      * 
-     * @type {ModifyClientDto}
-     * @memberof ClientsApiClientsPost
+     * @type {ModifyEmployerDto}
+     * @memberof EmployersApiEmployersPost
      */
-    readonly modifyClientDto?: ModifyClientDto
+    readonly modifyEmployerDto?: ModifyEmployerDto
 }
 
 /**
- * ClientsApi - object-oriented interface
+ * EmployersApi - object-oriented interface
  * @export
- * @class ClientsApi
+ * @class EmployersApi
  * @extends {BaseAPI}
  */
-export class ClientsApi extends BaseAPI {
+export class EmployersApi extends BaseAPI {
     /**
      * 
-     * @param {ClientsApiClientsDeleteIdDeleteRequest} requestParameters Request parameters.
+     * @param {EmployersApiEmployersDeleteIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsApi
+     * @memberof EmployersApi
      */
-    public clientsDeleteIdDelete(requestParameters: ClientsApiClientsDeleteIdDeleteRequest, options?: AxiosRequestConfig) {
-        return ClientsApiFp(this.configuration).clientsDeleteIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public employersDeleteIdDelete(requestParameters: EmployersApiEmployersDeleteIdDeleteRequest, options?: AxiosRequestConfig) {
+        return EmployersApiFp(this.configuration).employersDeleteIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsApi
+     * @memberof EmployersApi
      */
-    public clientsGet(options?: AxiosRequestConfig) {
-        return ClientsApiFp(this.configuration).clientsGet(options).then((request) => request(this.axios, this.basePath));
+    public employersGet(options?: AxiosRequestConfig) {
+        return EmployersApiFp(this.configuration).employersGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {ClientsApiClientsIdGetRequest} requestParameters Request parameters.
+     * @param {EmployersApiEmployersIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsApi
+     * @memberof EmployersApi
      */
-    public clientsIdGet(requestParameters: ClientsApiClientsIdGetRequest, options?: AxiosRequestConfig) {
-        return ClientsApiFp(this.configuration).clientsIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public employersIdGet(requestParameters: EmployersApiEmployersIdGetRequest, options?: AxiosRequestConfig) {
+        return EmployersApiFp(this.configuration).employersIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {ClientsApiClientsIdPutRequest} requestParameters Request parameters.
+     * @param {EmployersApiEmployersIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsApi
+     * @memberof EmployersApi
      */
-    public clientsIdPut(requestParameters: ClientsApiClientsIdPutRequest, options?: AxiosRequestConfig) {
-        return ClientsApiFp(this.configuration).clientsIdPut(requestParameters.id, requestParameters.modifyClientDto, options).then((request) => request(this.axios, this.basePath));
+    public employersIdPut(requestParameters: EmployersApiEmployersIdPutRequest, options?: AxiosRequestConfig) {
+        return EmployersApiFp(this.configuration).employersIdPut(requestParameters.id, requestParameters.modifyEmployerDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {ClientsApiClientsPostRequest} requestParameters Request parameters.
+     * @param {EmployersApiEmployersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClientsApi
+     * @memberof EmployersApi
      */
-    public clientsPost(requestParameters: ClientsApiClientsPostRequest = {}, options?: AxiosRequestConfig) {
-        return ClientsApiFp(this.configuration).clientsPost(requestParameters.modifyClientDto, options).then((request) => request(this.axios, this.basePath));
+    public employersPost(requestParameters: EmployersApiEmployersPostRequest = {}, options?: AxiosRequestConfig) {
+        return EmployersApiFp(this.configuration).employersPost(requestParameters.modifyEmployerDto, options).then((request) => request(this.axios, this.basePath));
     }
 }

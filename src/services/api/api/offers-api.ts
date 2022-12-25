@@ -21,14 +21,14 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { JobRequest } from '../models';
+import { ModifyOfferDto } from '../models';
 // @ts-ignore
-import { ModifyJobRequestDto } from '../models';
+import { Offer } from '../models';
 /**
- * JobRequestApi - axios parameter creator
+ * OffersApi - axios parameter creator
  * @export
  */
-export const JobRequestApiAxiosParamCreator = function (configuration?: Configuration) {
+export const OffersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
@@ -36,10 +36,10 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestClientIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        offersEmployerIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('jobRequestClientIdGet', 'id', id)
-            const localVarPath = `/job-request/client/{id}`
+            assertParamExists('offersEmployerIdGet', 'id', id)
+            const localVarPath = `/offers/employer/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -66,14 +66,14 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestClientIdPost: async (id: string, modifyJobRequestDto?: ModifyJobRequestDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        offersEmployerIdPost: async (id: string, modifyOfferDto?: ModifyOfferDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('jobRequestClientIdPost', 'id', id)
-            const localVarPath = `/job-request/client/{id}`
+            assertParamExists('offersEmployerIdPost', 'id', id)
+            const localVarPath = `/offers/employer/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -93,7 +93,7 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(modifyJobRequestDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(modifyOfferDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -106,10 +106,10 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        offersIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('jobRequestIdDelete', 'id', id)
-            const localVarPath = `/job-request/{id}`
+            assertParamExists('offersIdDelete', 'id', id)
+            const localVarPath = `/offers/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -136,14 +136,14 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestIdPut: async (id: string, modifyJobRequestDto?: ModifyJobRequestDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        offersIdPut: async (id: string, modifyOfferDto?: ModifyOfferDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('jobRequestIdPut', 'id', id)
-            const localVarPath = `/job-request/{id}`
+            assertParamExists('offersIdPut', 'id', id)
+            const localVarPath = `/offers/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -163,7 +163,7 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(modifyJobRequestDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(modifyOfferDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -174,11 +174,11 @@ export const JobRequestApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * JobRequestApi - functional programming interface
+ * OffersApi - functional programming interface
  * @export
  */
-export const JobRequestApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = JobRequestApiAxiosParamCreator(configuration)
+export const OffersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = OffersApiAxiosParamCreator(configuration)
     return {
         /**
          * 
@@ -186,19 +186,19 @@ export const JobRequestApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async jobRequestClientIdGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<JobRequest>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.jobRequestClientIdGet(id, options);
+        async offersEmployerIdGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Offer>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offersEmployerIdGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async jobRequestClientIdPost(id: string, modifyJobRequestDto?: ModifyJobRequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<JobRequest>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.jobRequestClientIdPost(id, modifyJobRequestDto, options);
+        async offersEmployerIdPost(id: string, modifyOfferDto?: ModifyOfferDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Offer>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offersEmployerIdPost(id, modifyOfferDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -207,30 +207,30 @@ export const JobRequestApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async jobRequestIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.jobRequestIdDelete(id, options);
+        async offersIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Offer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offersIdDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async jobRequestIdPut(id: string, modifyJobRequestDto?: ModifyJobRequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.jobRequestIdPut(id, modifyJobRequestDto, options);
+        async offersIdPut(id: string, modifyOfferDto?: ModifyOfferDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Offer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offersIdPut(id, modifyOfferDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
 
 /**
- * JobRequestApi - factory interface
+ * OffersApi - factory interface
  * @export
  */
-export const JobRequestApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = JobRequestApiFp(configuration)
+export const OffersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = OffersApiFp(configuration)
     return {
         /**
          * 
@@ -238,18 +238,18 @@ export const JobRequestApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestClientIdGet(id: string, options?: any): AxiosPromise<Array<JobRequest>> {
-            return localVarFp.jobRequestClientIdGet(id, options).then((request) => request(axios, basePath));
+        offersEmployerIdGet(id: string, options?: any): AxiosPromise<Array<Offer>> {
+            return localVarFp.offersEmployerIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestClientIdPost(id: string, modifyJobRequestDto?: ModifyJobRequestDto, options?: any): AxiosPromise<Array<JobRequest>> {
-            return localVarFp.jobRequestClientIdPost(id, modifyJobRequestDto, options).then((request) => request(axios, basePath));
+        offersEmployerIdPost(id: string, modifyOfferDto?: ModifyOfferDto, options?: any): AxiosPromise<Array<Offer>> {
+            return localVarFp.offersEmployerIdPost(id, modifyOfferDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -257,140 +257,140 @@ export const JobRequestApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestIdDelete(id: string, options?: any): AxiosPromise<JobRequest> {
-            return localVarFp.jobRequestIdDelete(id, options).then((request) => request(axios, basePath));
+        offersIdDelete(id: string, options?: any): AxiosPromise<Offer> {
+            return localVarFp.offersIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {ModifyJobRequestDto} [modifyJobRequestDto] 
+         * @param {ModifyOfferDto} [modifyOfferDto] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        jobRequestIdPut(id: string, modifyJobRequestDto?: ModifyJobRequestDto, options?: any): AxiosPromise<JobRequest> {
-            return localVarFp.jobRequestIdPut(id, modifyJobRequestDto, options).then((request) => request(axios, basePath));
+        offersIdPut(id: string, modifyOfferDto?: ModifyOfferDto, options?: any): AxiosPromise<Offer> {
+            return localVarFp.offersIdPut(id, modifyOfferDto, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for jobRequestClientIdGet operation in JobRequestApi.
+ * Request parameters for offersEmployerIdGet operation in OffersApi.
  * @export
- * @interface JobRequestApiJobRequestClientIdGetRequest
+ * @interface OffersApiOffersEmployerIdGetRequest
  */
-export interface JobRequestApiJobRequestClientIdGetRequest {
+export interface OffersApiOffersEmployerIdGetRequest {
     /**
      * 
      * @type {string}
-     * @memberof JobRequestApiJobRequestClientIdGet
+     * @memberof OffersApiOffersEmployerIdGet
      */
     readonly id: string
 }
 
 /**
- * Request parameters for jobRequestClientIdPost operation in JobRequestApi.
+ * Request parameters for offersEmployerIdPost operation in OffersApi.
  * @export
- * @interface JobRequestApiJobRequestClientIdPostRequest
+ * @interface OffersApiOffersEmployerIdPostRequest
  */
-export interface JobRequestApiJobRequestClientIdPostRequest {
+export interface OffersApiOffersEmployerIdPostRequest {
     /**
      * 
      * @type {string}
-     * @memberof JobRequestApiJobRequestClientIdPost
+     * @memberof OffersApiOffersEmployerIdPost
      */
     readonly id: string
 
     /**
      * 
-     * @type {ModifyJobRequestDto}
-     * @memberof JobRequestApiJobRequestClientIdPost
+     * @type {ModifyOfferDto}
+     * @memberof OffersApiOffersEmployerIdPost
      */
-    readonly modifyJobRequestDto?: ModifyJobRequestDto
+    readonly modifyOfferDto?: ModifyOfferDto
 }
 
 /**
- * Request parameters for jobRequestIdDelete operation in JobRequestApi.
+ * Request parameters for offersIdDelete operation in OffersApi.
  * @export
- * @interface JobRequestApiJobRequestIdDeleteRequest
+ * @interface OffersApiOffersIdDeleteRequest
  */
-export interface JobRequestApiJobRequestIdDeleteRequest {
+export interface OffersApiOffersIdDeleteRequest {
     /**
      * 
      * @type {string}
-     * @memberof JobRequestApiJobRequestIdDelete
+     * @memberof OffersApiOffersIdDelete
      */
     readonly id: string
 }
 
 /**
- * Request parameters for jobRequestIdPut operation in JobRequestApi.
+ * Request parameters for offersIdPut operation in OffersApi.
  * @export
- * @interface JobRequestApiJobRequestIdPutRequest
+ * @interface OffersApiOffersIdPutRequest
  */
-export interface JobRequestApiJobRequestIdPutRequest {
+export interface OffersApiOffersIdPutRequest {
     /**
      * 
      * @type {string}
-     * @memberof JobRequestApiJobRequestIdPut
+     * @memberof OffersApiOffersIdPut
      */
     readonly id: string
 
     /**
      * 
-     * @type {ModifyJobRequestDto}
-     * @memberof JobRequestApiJobRequestIdPut
+     * @type {ModifyOfferDto}
+     * @memberof OffersApiOffersIdPut
      */
-    readonly modifyJobRequestDto?: ModifyJobRequestDto
+    readonly modifyOfferDto?: ModifyOfferDto
 }
 
 /**
- * JobRequestApi - object-oriented interface
+ * OffersApi - object-oriented interface
  * @export
- * @class JobRequestApi
+ * @class OffersApi
  * @extends {BaseAPI}
  */
-export class JobRequestApi extends BaseAPI {
+export class OffersApi extends BaseAPI {
     /**
      * 
-     * @param {JobRequestApiJobRequestClientIdGetRequest} requestParameters Request parameters.
+     * @param {OffersApiOffersEmployerIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobRequestApi
+     * @memberof OffersApi
      */
-    public jobRequestClientIdGet(requestParameters: JobRequestApiJobRequestClientIdGetRequest, options?: AxiosRequestConfig) {
-        return JobRequestApiFp(this.configuration).jobRequestClientIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public offersEmployerIdGet(requestParameters: OffersApiOffersEmployerIdGetRequest, options?: AxiosRequestConfig) {
+        return OffersApiFp(this.configuration).offersEmployerIdGet(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {JobRequestApiJobRequestClientIdPostRequest} requestParameters Request parameters.
+     * @param {OffersApiOffersEmployerIdPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobRequestApi
+     * @memberof OffersApi
      */
-    public jobRequestClientIdPost(requestParameters: JobRequestApiJobRequestClientIdPostRequest, options?: AxiosRequestConfig) {
-        return JobRequestApiFp(this.configuration).jobRequestClientIdPost(requestParameters.id, requestParameters.modifyJobRequestDto, options).then((request) => request(this.axios, this.basePath));
+    public offersEmployerIdPost(requestParameters: OffersApiOffersEmployerIdPostRequest, options?: AxiosRequestConfig) {
+        return OffersApiFp(this.configuration).offersEmployerIdPost(requestParameters.id, requestParameters.modifyOfferDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {JobRequestApiJobRequestIdDeleteRequest} requestParameters Request parameters.
+     * @param {OffersApiOffersIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobRequestApi
+     * @memberof OffersApi
      */
-    public jobRequestIdDelete(requestParameters: JobRequestApiJobRequestIdDeleteRequest, options?: AxiosRequestConfig) {
-        return JobRequestApiFp(this.configuration).jobRequestIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public offersIdDelete(requestParameters: OffersApiOffersIdDeleteRequest, options?: AxiosRequestConfig) {
+        return OffersApiFp(this.configuration).offersIdDelete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {JobRequestApiJobRequestIdPutRequest} requestParameters Request parameters.
+     * @param {OffersApiOffersIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JobRequestApi
+     * @memberof OffersApi
      */
-    public jobRequestIdPut(requestParameters: JobRequestApiJobRequestIdPutRequest, options?: AxiosRequestConfig) {
-        return JobRequestApiFp(this.configuration).jobRequestIdPut(requestParameters.id, requestParameters.modifyJobRequestDto, options).then((request) => request(this.axios, this.basePath));
+    public offersIdPut(requestParameters: OffersApiOffersIdPutRequest, options?: AxiosRequestConfig) {
+        return OffersApiFp(this.configuration).offersIdPut(requestParameters.id, requestParameters.modifyOfferDto, options).then((request) => request(this.axios, this.basePath));
     }
 }

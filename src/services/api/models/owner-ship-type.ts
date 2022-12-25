@@ -14,8 +14,19 @@
 
 
 
-export * from './api/clients-api';
-export * from './api/employers-api';
-export * from './api/job-request-api';
-export * from './api/offers-api';
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+
+export const OwnerShipType = {
+    NUMBER_0: 0,
+    NUMBER_1: 1,
+    NUMBER_2: 2
+} as const;
+
+export type OwnerShipType = typeof OwnerShipType[keyof typeof OwnerShipType];
+
+
 

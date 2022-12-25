@@ -1,21 +1,13 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { AccountCircle } from '@mui/icons-material';
 import { AppBar, CssBaseline } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useAxiosQuery } from 'shared/hooks/useAxiosQuery';
-import { Loader } from 'shared/ui/Loader';
-
 type ListType = {
   text: string;
   path: string;
@@ -29,10 +21,6 @@ const list: ListType[] = [
   {
     text: 'Клиенты',
     path: '/clients',
-  },
-  {
-    text: 'Одменка',
-    path: '/users',
   },
 ];
 

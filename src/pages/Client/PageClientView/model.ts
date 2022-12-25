@@ -39,12 +39,12 @@ export const useLocalModel = () => {
   }));
 
   const onSubmitCreate = async (values: ModifyJobRequestDto) => {
-    await api.jobRequests.jobRequestClientIdPost({ id: params.id!, modifyJobRequestDto: values });
+    await api.jobRequests.jobRequestClientIdPost({ id: String(params!.id), modifyJobRequestDto: values });
     toggleCreateVisible();
     await fetchRequests();
   };
   const onSubmitEdit = async (values: ModifyJobRequestDto) => {
-    await api.jobRequests.jobRequestIdPut({ id: params.id!, jobRequest: values });
+    await api.jobRequests.jobRequestIdPut({ id: String(currentRequest!.id), modifyJobRequestDto: values });
     toggleEditVisible();
     await fetchRequests();
   };
